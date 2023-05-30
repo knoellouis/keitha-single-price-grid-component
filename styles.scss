@@ -1,0 +1,198 @@
+// ### Primary
+
+$Cyan: #2ab2af;
+$BrightYellow: #c0df34;
+
+// ### Neutral
+
+$LightGray: #e5eff5;
+$GrayishBlue: #98a6bd;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $LightGray;
+  overflow: scroll;
+}
+
+.price_grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  max-width: 630px;
+  width: 100%;
+
+  margin: 0 auto;
+
+  box-shadow: 0px 0px 15px rgba(152, 166, 189, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+
+  &_top {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background: #ffffff;
+  }
+
+  &_bottom {
+    color: $LightGray;
+  }
+
+  &_bottom_left {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background: $Cyan;
+  }
+
+  &_bottom_right {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background: lighten($Cyan, 2.2);
+  }
+
+  .grid_section {
+    padding: 30px;
+  }
+
+  ul.list {
+    list-style: none;
+
+    li.list_item {
+      line-height: 1.5;
+    }
+  }
+
+  button.btn {
+    background: $BrightYellow;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    width: 100%;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 30px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .headline {
+    line-height: 2;
+    font-weight: 700;
+  }
+
+  h1.headline {
+    color: $Cyan;
+  }
+  h2.headline {
+    font-size: 20px;
+  }
+  h3.headline {
+    font-size: 18px;
+  }
+
+  .subheadline {
+    line-height: 2.5;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  p.subheadline {
+    color: $BrightYellow;
+  }
+
+  p.main_text {
+    color: $GrayishBlue;
+  }
+
+  .price_point {
+    &_price {
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+    }
+    &_text {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-left: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 14px;
+  }
+  .price_grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    overflow: scroll;
+
+    h1.headline {
+      font-size: 20px;
+    }
+    h2.headline {
+      font-size: 18px;
+    }
+    h3.headline {
+      font-size: 16px;
+    }
+
+    .subheadline {
+      line-height: 1.5;
+    }
+
+    p.main_text {
+      margin-top: 20px;
+    }
+
+    &_top {
+      grid-column: 1 / -1;
+    }
+    &_bottom_left {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+
+    &_bottom_right {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+    }
+
+    .price_point {
+      &_price {
+        font-size: 25px;
+      }
+      &_text {
+        font-size: 14px;
+      }
+    }
+
+    button.btn {
+      margin-top: 20px;
+    }
+  }
+}
